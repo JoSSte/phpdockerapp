@@ -18,4 +18,6 @@ RUN a2ensite php.localhost.conf
 
 RUN rm /etc/apache2/sites-enabled/000-default.conf
 
+RUN apt-get clean && apt-get autoclean
+
 EXPOSE 86
