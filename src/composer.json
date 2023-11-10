@@ -1,0 +1,25 @@
+{
+    "name": "josste/phpdockerapp",
+    "description": "php app with docker containers",
+    "type": "project",
+    "require": {
+        "firebase/php-jwt": "^6.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.4",
+        "phpunit/php-code-coverage": "^10.1",
+        "vimeo/psalm": "^5.15",
+        "psalm/plugin-phpunit": "^0.18.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Josste\\Phpdockerapp\\": "src/classes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jonas Stumph Stevnsvig",
+            "email": "jonas@stevnsvig.com"
+        }
+    ]
+}
