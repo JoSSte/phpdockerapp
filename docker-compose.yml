@@ -1,6 +1,17 @@
-version: '2'
+version: '3.9'
 
 services:
+
+  db:
+    build: ./Docker/mariadb
+    #environment:
+    #  - MYSQL_DATABASE=userdb
+    #  - MYSQL_ROOT_PASSWORD=test
+    ports:
+      - 3309:3306
+    networks:
+      - phpnet
+
   php:
     build: ./Docker/php
     volumes:
@@ -13,22 +24,19 @@ services:
     depends_on:
       - db
     networks:
-      - phpsample
+      - phpnet
 
-  db:
-    build: ./Docker/mariadb
-    networks:
-      - phpsample
 
   metabase:
     image: metabase/metabase:latest
+    #image: josste/metabase # created following https://www.metabase.com/docs/latest/installation-and-operation/running-metabase-on-docker#continue-to-setup
     depends_on:
       - db
     ports:
       - 3000:3000
     networks:
-      - phpsample
+      - phpnet
 
 networks:
-  phpsample:
+  phpnet:
     driver: bridge
