@@ -2,14 +2,13 @@
 require_once 'vendor/autoload.php';
 
 use JoSSte\Phpdockerapp\FruitRepository;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Fruits</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
@@ -17,33 +16,28 @@ use JoSSte\Phpdockerapp\FruitRepository;
     <table class="striped-table">
         <caption>Fruits</caption>
         <thead>
-            <tr class="green">
+            <tr class="dark">
                 <th>Name</th>
                 <th>Colour</th>
                 <th>Calories</th>
+                <th>Type</th>
             </tr>
         </thead>
         <tbody>
-
             <?php
-            $fruits = FruitRepository::getAllFruitsUnfiltered();
 
-
-            foreach ($fruits as $fruit) {
+            foreach (FruitRepository::getAllFruitsUnfiltered() as $fruit) {
                 echo "            <tr>\n" .
                     "               <td>" . $fruit["fruitname"] . "</td>\n" .
                     "               <td>" . $fruit["colour"] . "</td>\n" .
                     "               <td>" . $fruit["calories"] . "</td>\n" .
+                    "               <td>" . /* $fruit["type"] . */ "</td>\n" .
                     "            </tr>\n";
             }
 
             ?>
         </tbody>
     </table>
-
-    <!-- 
-    <pre><?php var_dump($fruits); ?></pre>
-    -->
 </body>
 
 </html>

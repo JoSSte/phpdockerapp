@@ -1,0 +1,58 @@
+@property --base {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: oklch(54.134% 0.24669 293.012);
+}
+
+:root {
+    --lighter: oklch(from var(--base) clamp(0, l + .20, 1) calc(c * 0.9) h);
+    --lightest: oklch(from var(--base) clamp(0, l + .35, 1) calc(c * 0.85) h);
+    --darker: oklch(from var(--base) clamp(0, l - .27, 1) calc(c * 0.92) h);
+    --darkest: oklch(from var(--base) clamp(0, l - .45, 1) calc(c * 0.92) h);
+    --basecomplement: hsl(from var(--base) calc(h - 180) s l);
+    --darkcomplement: hsl(from var(--darkest) calc(h - 180) s l);
+    --border: black;
+    --table-border: darkgrey;
+}
+
+
+html {
+    font-family: Arial, sans-serif;
+    background-color: var(--lightest);
+}
+
+.striped-table {
+    border-collapse: collapse;
+}
+
+.striped-table tr:nth-child(even) {
+    background-color: var(--lighter);
+}
+
+.striped-table th,
+.striped-table td {
+    border: 1px solid var(--table-border);
+    padding: 8px;
+}
+
+.striped-table td {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.dark {
+    background-color: var(--darkest);
+    color: white;
+}
+
+.striped-table caption {
+    caption-side: top;
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+}
+
+iframe.seamlessIframe {
+    border: none;
+    width: 90vw;
+    height: 90vh;
+}
