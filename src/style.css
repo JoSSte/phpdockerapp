@@ -13,6 +13,11 @@ html{
     border: 1px solid #ddd;
     padding: 8px;
 }
+.striped-table td {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
 .green {
     background-color: #4CAF50;
     color: white;

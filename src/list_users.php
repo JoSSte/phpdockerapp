@@ -31,7 +31,7 @@ use JoSSte\Phpdockerapp\UserRepository;
                     "               <td>" . $user["username"] . "</td>\n" .
                     "               <td>" . $user["email"] . "</td>\n" .
                     "               <td>" . $user["create_date"] . "</td>\n" .
-                    "               <td>" . $user["last_update_date"] . "</td>\n" .
+                    "               <td><time datetime=\"" . $user["last_update_date"] . "\">" . $user["last_update_date"] . "</time></td>\n" .
                     "            </tr>\n";
             }
 
