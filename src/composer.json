@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Josste\\Phpdockerapp\\": "src/classes/"
+            "JoSSte\\Phpdockerapp\\": "classes/"
         }
     },
     "authors": [

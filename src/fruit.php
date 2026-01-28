@@ -1,16 +1,23 @@
+<?php
+require_once 'vendor/autoload.php';
+
+use JoSSte\Phpdockerapp\FruitRepository;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Fruits</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <h1>Fruits</h1>
-    <table>
-        <caption>Fruit</caption>
+    <table class="striped-table">
+        <caption>Fruits</caption>
         <thead>
-            <tr>
+            <tr class="green">
                 <th>Name</th>
                 <th>Colour</th>
                 <th>Calories</th>
@@ -19,38 +26,24 @@
         <tbody>
 
             <?php
+            $fruits = FruitRepository::getAllFruitsUnfiltered();
 
-            $dsn = 'mysql:dbname=userdb;host=db';
-            $user = 'root';
-            $password = 'test';
 
-            $dbh = new PDO($dsn, $user, $password);
-
-            $calories = 4;
-            $colour = 'red';
-
-            $sth = $dbh->prepare('SELECT fruitname, colour, calories
-    FROM fruit
-    WHERE calories < :calories AND colour = :colour');
-
-            /* Sets a parameter value using its name */
-            $sth->bindValue('calories', $calories, PDO::PARAM_INT);
-            /* Optionally, parameter names can also be prefixed with colons ":" */
-            $sth->bindValue(':colour', $colour, PDO::PARAM_STR);
-            $sth->execute();
-
-            while ($result = $sth->fetch(PDO::FETCH_ASSOC)) {
+            foreach ($fruits as $fruit) {
                 echo "            <tr>\n" .
-                    "               <td>" . $result["fruitname"] . "</td>\n" .
-                    "               <td>" . $result["colour"] . "</td>\n" .
-                    "               <td>" . $result["calories"] . "</td>\n" .
+                    "               <td>" . $fruit["fruitname"] . "</td>\n" .
+                    "               <td>" . $fruit["colour"] . "</td>\n" .
+                    "               <td>" . $fruit["calories"] . "</td>\n" .
                     "            </tr>\n";
             }
-
 
             ?>
         </tbody>
     </table>
+
+    <!-- 
+    <pre><?php var_dump($fruits); ?></pre>
+    -->
 </body>
 
 </html>

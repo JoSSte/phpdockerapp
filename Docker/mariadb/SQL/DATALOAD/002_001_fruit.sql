@@ -6,4 +6,5 @@ insert into fruit(fruitname, colour, calories) VALUES
 	('Apple',      'red',      5),
 	('Watermelon', 'green',  100),
 	('Blueberry',  'blue',     1),
-	('Grape',      'green',    1);
+	('Grape',      'green',    1),
+	('Dragonfruit','pink',    50);
