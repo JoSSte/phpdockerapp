@@ -26,7 +26,7 @@
 
             $dbh = new PDO($dsn, $user, $password);
 
-            $calories = 1;
+            $calories = 4;
             $colour = 'red';
 
             $sth = $dbh->prepare('SELECT fruitname, colour, calories
